@@ -1639,72 +1639,72 @@ class PandoraWatchdogTray(QObject):
             QMenu::separator {{ height: 1px; background: {BORDER}; margin: 4px 0; }}
         """)
 
-        self.act_status = QAction("Status: gestoppt")
+        self.act_status = QAction("Status: gestoppt", menu)
         self.act_status.setEnabled(False)
         menu.addAction(self.act_status)
         menu.addSeparator()
 
-        act_watch_dir = QAction("Watch-Ordner waehlen...")
+        act_watch_dir = QAction("Watch-Ordner waehlen...", menu)
         act_watch_dir.triggered.connect(self.choose_watch_dir)
         menu.addAction(act_watch_dir)
 
-        act_clean_dir = QAction("Clean-Ordner waehlen...")
+        act_clean_dir = QAction("Clean-Ordner waehlen...", menu)
         act_clean_dir.triggered.connect(self.choose_clean_dir)
         menu.addAction(act_clean_dir)
 
-        self.act_delete_original = QAction("Original nach Bereinigung loeschen")
+        self.act_delete_original = QAction("Original nach Bereinigung loeschen", menu)
         self.act_delete_original.setCheckable(True)
         self.act_delete_original.setChecked(self.cfg.get("delete_original", False))
         self.act_delete_original.triggered.connect(self._toggle_delete_original)
         menu.addAction(self.act_delete_original)
 
-        self.act_toggle = QAction("Ordner-Dienst starten")
+        self.act_toggle = QAction("Ordner-Dienst starten", menu)
         self.act_toggle.triggered.connect(self.toggle_watching)
         menu.addAction(self.act_toggle)
 
         menu.addSeparator()
 
-        act_manage_paths = QAction("Ueberwachte Ordner verwalten...")
+        act_manage_paths = QAction("Ueberwachte Ordner verwalten...", menu)
         act_manage_paths.triggered.connect(self.manage_watch_paths)
         menu.addAction(act_manage_paths)
 
-        self.act_injection_toggle = QAction("Injektions-Waechter starten")
+        self.act_injection_toggle = QAction("Injektions-Waechter starten", menu)
         self.act_injection_toggle.triggered.connect(self.toggle_injection_watch)
         menu.addAction(self.act_injection_toggle)
 
-        act_baseline = QAction("Baseline-Scan jetzt ausfuehren")
+        act_baseline = QAction("Baseline-Scan jetzt ausfuehren", menu)
         act_baseline.triggered.connect(self.run_baseline_scan)
         menu.addAction(act_baseline)
 
-        act_show_detections = QAction("Erkannte Dateien anzeigen")
+        act_show_detections = QAction("Erkannte Dateien anzeigen", menu)
         act_show_detections.triggered.connect(self.show_detections_window)
         menu.addAction(act_show_detections)
 
-        act_gemini_key = QAction("Gemini API-Key hinterlegen...")
+        act_gemini_key = QAction("Gemini API-Key hinterlegen...", menu)
         act_gemini_key.triggered.connect(self.set_gemini_key)
         menu.addAction(act_gemini_key)
 
         menu.addSeparator()
 
-        act_manage_persistence = QAction("Persistenz-Orte verwalten (Autostart/Bashrc/SSH...)...")
+        act_manage_persistence = QAction("Persistenz-Orte verwalten (Autostart/Bashrc/SSH...)...", menu)
         act_manage_persistence.triggered.connect(self.manage_persistence_paths)
         menu.addAction(act_manage_persistence)
 
-        self.act_persistence_toggle = QAction("Persistenz-Waechter starten")
+        self.act_persistence_toggle = QAction("Persistenz-Waechter starten", menu)
         self.act_persistence_toggle.triggered.connect(self.toggle_persistence_watch)
         menu.addAction(self.act_persistence_toggle)
 
         menu.addSeparator()
 
-        act_quarantine = QAction("Quarantaene-Ordner verwalten...")
+        act_quarantine = QAction("Quarantaene-Ordner verwalten...", menu)
         act_quarantine.triggered.connect(self.show_quarantine_manager)
         menu.addAction(act_quarantine)
 
-        act_ignore_list = QAction("Ignorierliste (Whitelist) verwalten...")
+        act_ignore_list = QAction("Ignorierliste (Whitelist) verwalten...", menu)
         act_ignore_list.triggered.connect(self.manage_ignore_list)
         menu.addAction(act_ignore_list)
 
-        self.act_yara_toggle = QAction(f"YARA-Regelpruefung aktiv{'' if YARA_AVAILABLE else ' (yara-python fehlt)'}")
+        self.act_yara_toggle = QAction(f"YARA-Regelpruefung aktiv{'' if YARA_AVAILABLE else ' (yara-python fehlt)'}", menu)
         self.act_yara_toggle.setCheckable(True)
         self.act_yara_toggle.setChecked(self.cfg.get("yara_enabled", True))
         self.act_yara_toggle.setEnabled(YARA_AVAILABLE)
@@ -1713,13 +1713,13 @@ class PandoraWatchdogTray(QObject):
 
         menu.addSeparator()
 
-        act_log = QAction("Verlauf anzeigen")
+        act_log = QAction("Verlauf anzeigen", menu)
         act_log.triggered.connect(self.show_log)
         menu.addAction(act_log)
 
         menu.addSeparator()
 
-        act_quit = QAction("Beenden")
+        act_quit = QAction("Beenden", menu)
         act_quit.triggered.connect(self.quit)
         menu.addAction(act_quit)
 
