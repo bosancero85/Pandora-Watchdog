@@ -1,0 +1,13 @@
+[Unit]
+Description=Pandora® Watchdog - Metadaten- und Injektions-Waechter
+After=graphical-session.target
+
+[Service]
+# Pfad ggf. an den tatsaechlichen Klon-/Installationsort anpassen:
+WorkingDirectory=%h/Pandora-Watchdog
+ExecStart=%h/Pandora-Watchdog/venv/bin/python3 %h/Pandora-Watchdog/pandora_watchdog.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Pandora® Watchdog
+Comment=Metadaten-Bereinigung, Injektions- und Persistenz-Waechter
+Exec=python3 /home/%u/Pandora-Watchdog/pandora_watchdog.py
+Icon=security-high
+Terminal=false
+Categories=Utility;Security;
+X-GNOME-Autostart-enabled=true
